@@ -84,7 +84,7 @@ export default function Home() {
           value={searchQuery}
           onChange={handleInput}
         />
-        <button type="submit" className="search-button">
+        <button type="submit" className="search-button sex">
           Search
           <span className="top"></span>
           <span className="bottom"></span>
