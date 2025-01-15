@@ -1,4 +1,5 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 import "./css/App.css";
 import Home from "./Pages/home";
 import Favourites from "./Pages/favourites";

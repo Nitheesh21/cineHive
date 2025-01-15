@@ -4,7 +4,9 @@ export default function NavBar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">Movie App</Link>
+        <Link to="/" className="cineHive">
+          cineHive
+        </Link>
       </div>
       <div className="navbar-links">
         <Link to="/" className="nav-link home home-button">
