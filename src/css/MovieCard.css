@@ -9,7 +9,6 @@
   flex-direction: column;
   margin: 10px;
 }
-
 .movie-card:hover {
   transform: translateY(-5px);
 }
@@ -64,6 +63,7 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
+  margin-right: 50px;
 }
 
 .favorite-btn:hover {
@@ -122,4 +122,21 @@
     height: 32px;
     font-size: 1.2rem;
   }
+}
+
+.wl-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
 }

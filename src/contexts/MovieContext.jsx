@@ -6,6 +6,7 @@ export const useMovieContext = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
+  const [watchlater, setWatchlater] = useState([]);
 
   useEffect(() => {
     const storedFavs = localStorage.getItem("favorites");
@@ -39,6 +40,39 @@ export const MovieProvider = ({ children }) => {
     return favorites.some((movie) => movie.id === movieId);
   };
 
+  useEffect(() => {
+    const storedWatchlater = localStorage.getItem("watchlater");
+
+    if (storedWatchlater) {
+      setWatchlater(JSON.parse(storedWatchlater));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("watchlater", JSON.stringify(watchlater));
+  }, [watchlater]);
+
+  useEffect(() => {
+    console.log("Watchlater updated:", watchlater);
+  }, [watchlater]);
+
+  const addToWatchlater = (movie) => {
+    if (!movie.id) {
+      console.error("Movie object must contain an id.");
+      return;
+    }
+    setWatchlater((prev) => [...prev, movie]);
+    console.log(watchlater);
+  };
+
+  const removeFromWatchlater = (movieId) => {
+    setWatchlater((prev) => prev.filter((movie) => movie.id !== movieId));
+  };
+
+  const isWatchlater = (movieId) => {
+    return watchlater.some((movie) => movie.id === movieId);
+  };
+
   return (
     <MovieContext.Provider
       value={{
@@ -47,6 +81,11 @@ export const MovieProvider = ({ children }) => {
         addToFav,
         removeFromFav,
         isFav,
+        watchlater,
+        setWatchlater,
+        addToWatchlater,
+        removeFromWatchlater,
+        isWatchlater,
       }}
     >
       {children}

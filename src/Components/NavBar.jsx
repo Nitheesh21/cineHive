@@ -15,6 +15,9 @@ export default function NavBar() {
         <Link to="/Favourites" className="nav-link favourites fav-button">
           Favourites
         </Link>
+        <Link to="/Watchlater" className="nav-link favourites fav-button">
+          Watch Later
+        </Link>
       </div>
     </nav>
   );
